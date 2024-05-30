@@ -4,6 +4,8 @@
     "description": "GraphQL Lab",
     "main": "index.js",
     "scripts": {
+        "compile": "tsc",
+        "start": "ts-node ./src/index.ts",
         "dev": "nodemon src/index.ts --exec ts-node src/index.ts -e ts,graphql"
     },
     "devDependencies": {
@@ -16,6 +18,7 @@
         "typescript": "^5.0.4"
     },
     "dependencies": {
+        "@graphql-tools/utils": "^10.2.1",
         "apollo-server-express": "^3.12.0",
         "cors": "^2.8.5",
         "express": "^4.18.2",

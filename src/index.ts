@@ -1,10 +1,10 @@
-import express from "express";
+import express, { Application } from "express";
 import cors from "cors";
 import { ApolloServer } from "apollo-server-express";
 import { schema } from "./graphql";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core"
 
-const app = express()
+const app: Application = express();
 app.use(cors())
 const server = new ApolloServer({
     schema,
