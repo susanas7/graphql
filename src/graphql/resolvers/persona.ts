@@ -1,10 +1,18 @@
 import {IResolvers} from '@graphql-tools/utils';
 import { PersonaDataSource } from '../../data/personadata';
+import { Db } from 'mongodb';
 
 const personaResolver: IResolvers = {
     Query: {
         obtenerPersona(){
             return PersonaDataSource;
+        },
+        obtenerPersonaEnMongo: async (parent, args, context: Db) => {
+            try {
+                return await context.collection('persona').find().toArray() ?? [];
+            } catch (error) {
+                console.log(error);
+            }
         },
         obtenerPersonaPorNombre: (parent, { nombre }) => {
             return PersonaDataSource.filter(PersonaDataSource => PersonaDataSource.nombre.toLowerCase().includes(nombre.toLowerCase()));
@@ -18,6 +26,14 @@ const personaResolver: IResolvers = {
             };
             PersonaDataSource.push(newPerson);
             return newPerson;
+        },
+        crearPersonaEnMongo: async (root: void, args: any, context: Db) => {
+            try {
+                const person = await context.collection('persona').insertOne(args.persona);
+                return "Persona creada exitosamente";
+            } catch (error) {
+                console.log(error);
+            }
         },
         actualizarPersona: (parent, { id, input }) => {
             const personIndex = PersonaDataSource.findIndex(person => person.id === id);

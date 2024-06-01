@@ -1,5 +1,5 @@
 import {GraphQLSchema} from 'graphql';
-import {makeExecutableSchema} from 'graphql-tools';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 import mergeTypeDefs from 'graphql-tools-merge-typedefs';
 import 'graphql-import-node';
 import  perroSchema from './schemas/perro.graphql';
