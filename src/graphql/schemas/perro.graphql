@@ -1,0 +1,10 @@
+type Query{
+    obtenerPerro: [Perro]
+}
+
+type Perro {
+  id: ID!
+  nombre: String!
+  raza: String!
+  nacimiento: String!
+}

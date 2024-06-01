@@ -1,0 +1,1 @@
+export const PersonaDataSource = [{ "id": "1", "nombre": "Jhon", "apellido": "Doe", "nacimiento": "2000-08-03"}, { "id": "2", "nombre": "Jane", "apellido": "Doe", "nacimiento": "1999-02-01"}];

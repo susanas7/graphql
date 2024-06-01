@@ -28,9 +28,6 @@ jspm_packages/
 dist/
 build/
 
-# GraphQL generated files (if any)
-*.graphql
-
 # Environment variables
 .env
 .env.*.local

@@ -1,0 +1,31 @@
+type Query{
+    obtenerPersona: [Persona],
+    obtenerPersonaPorNombre(nombre: String!): [Persona]
+    obtenerPersonaEnMongo: [Persona],
+}
+
+type Persona {
+  id: ID!
+  nombre: String!
+  apellido: String!
+  nacimiento: String!
+}
+
+type Mutation {
+  crearPersona(input: PersonaInput!): Persona
+  crearPersonaEnMongo(persona: PersonaInput!): String
+}
+
+input PersonaInput {
+  nombre: String!
+  apellido: String!
+  nacimiento: String!
+}
+
+type Mutation {
+  actualizarPersona(_id: ID!, input: PersonaInput!): Persona
+}
+
+type Mutation {
+  eliminarPersona(_id: ID!): Boolean
+}
